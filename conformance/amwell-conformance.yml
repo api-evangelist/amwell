@@ -1,0 +1,48 @@
+generated: '2026-07-24'
+method: searched
+source: https://business.amwell.com/the-amwell-platform + https://business.amwell.com/government/
+note: >-
+  Amwell's Converge developer surface is gated behind a partner login
+  (developers.amwell.com), so no public OpenAPI/FHIR CapabilityStatement was
+  available to derive from. These standards are asserted from Amwell's public
+  product and compliance statements, not from a machine-readable spec.
+standards:
+  - id: hl7-fhir
+    conforms: true
+    evidence: >-
+      Amwell publicly states the Converge platform's APIs leverage HL7 FHIR for
+      interoperability and EHR integration (business.amwell.com/the-amwell-platform).
+  - id: smart-on-fhir
+    conforms: true
+    evidence: >-
+      Verified embedded-telehealth integrations with Epic and Oracle Cerner EHRs
+      launch virtual visits via single sign-on over FHIR-based workflows, the
+      SMART-on-FHIR launch pattern.
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      Content-Security-Policy on developers.amwell.com references
+      keycloak.dev.americanwell.com (Keycloak identity provider), indicating
+      OAuth 2.0 / OIDC authorization for the platform.
+  - id: oidc
+    conforms: true
+    evidence: >-
+      Single sign-on is documented for the Converge platform; Keycloak IdP in
+      the CSP supports OpenID Connect.
+  - id: saml-sso
+    conforms: true
+    evidence: >-
+      Single sign-on for EHR and patient-portal launch of virtual visits.
+  - id: hipaa
+    conforms: true
+    evidence: >-
+      Amwell is HIPAA compliant (business.amwell.com/government/); US telehealth
+      handling PHI operates under HIPAA.
+  - id: hitrust-csf
+    conforms: true
+    evidence: >-
+      "HITRUST certified" named on Amwell's first-party government solutions page
+      (business.amwell.com/government/).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: gated spec; error envelope not publicly documented

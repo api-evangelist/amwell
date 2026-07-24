@@ -76,6 +76,8 @@ apis:
   - type: Documentation
     url: https://business.amwell.com/the-amwell-platform
 common:
+- type: DomainSecurity
+  url: security/amwell-domain-security.yml
 - type: Website
   url: https://www.amwell.com
 - type: DeveloperPortal
@@ -90,8 +92,18 @@ common:
   url: https://business.amwell.com/contact-us/
 - type: PrivacyPolicy
   url: https://business.amwell.com/privacy-policy/
+- type: TermsOfService
+  url: https://business.amwell.com/terms-of-use/
 - type: LinkedIn
   url: https://www.linkedin.com/company/amwell
+- type: Authentication
+  url: authentication/amwell-authentication.yml
+- type: Conformance
+  url: conformance/amwell-conformance.yml
+- type: Compliance
+  url: https://business.amwell.com/government/
+- type: LLMsTxt
+  url: llms/amwell-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

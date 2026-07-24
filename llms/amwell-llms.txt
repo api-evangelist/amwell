@@ -1,0 +1,30 @@
+# Amwell (American Well)
+
+> Amwell is a United States telehealth and hybrid-care technology company (Boston, MA) whose Converge platform delivers virtual and in-person care at scale for health systems, health plans, and government programs. The Converge platform is built on an open architecture whose APIs leverage HL7 FHIR and single sign-on, with embedded telehealth SDKs for iOS, Android, and web so partners can plug urgent, scheduled, behavioral, and specialty virtual visits into their own apps, patient portals, and clinical workflows. The developer surface is a gated partner developer portal — the REST/FHIR API reference, SDKs, and sandbox sit behind a partner login rather than an anonymous public spec.
+
+## APIs
+
+- [Amwell Converge Platform API](https://developers.amwell.com): REST/FHIR APIs with single sign-on to embed and orchestrate urgent, scheduled, behavioral, and specialty virtual visits (gated partner portal).
+- [Amwell Telehealth SDK](https://developers.amwell.com): Embedded telehealth SDKs for iOS, Android, and web to plug live virtual visits into consumer and clinical apps (distributed through the gated developer portal).
+- [Amwell EHR Integration](https://business.amwell.com/the-amwell-platform): Verified embedded-telehealth integrations for Epic and Oracle Cerner EHRs using single sign-on and FHIR-based workflows.
+
+## Standards
+
+- HL7 FHIR — interoperability and EHR integration
+- SMART on FHIR / OAuth 2.0 / OpenID Connect — single sign-on (Keycloak identity provider)
+- SAML SSO — EHR and patient-portal launch
+- HIPAA compliant; HITRUST certified
+
+## Docs
+
+- [Developer Portal (gated)](https://developers.amwell.com)
+- [The Amwell Platform](https://business.amwell.com/the-amwell-platform)
+- [Government / Hybrid Care Platform](https://business.amwell.com/government/)
+- [Blog](https://business.amwell.com/blog)
+- [Status Page](https://status.amwell.com)
+- [Support / Contact](https://business.amwell.com/contact-us/)
+
+## Notes
+
+- Access to the REST/FHIR API reference, SDK downloads, and sandbox is provisioned through the gated Amwell partner developer portal (developers.amwell.com) after partner login.
+- No anonymous public OpenAPI, GraphQL, MCP, or AsyncAPI document was discoverable as of 2026-07-24 (all /.well-known/, /openapi.json, /swagger.json probes returned 404).

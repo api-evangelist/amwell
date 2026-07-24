@@ -1,0 +1,36 @@
+generated: '2026-07-24'
+method: searched
+source: >-
+  Content-Security-Policy of developers.amwell.com (Keycloak IdP) +
+  Amwell Converge platform single-sign-on documentation
+note: >-
+  The Amwell Converge REST/FHIR API reference sits behind the gated partner
+  developer portal (developers.amwell.com), so no OpenAPI securitySchemes could
+  be derived mechanically. This profile is assembled from Amwell's public
+  single-sign-on statements and the identity infrastructure exposed in the
+  developer/telehealth client's Content-Security-Policy.
+summary:
+  types: [oauth2, openIdConnect, saml]
+  api_key_in: []
+  oauth2_flows: [authorizationCode]
+  identity_provider: Keycloak (keycloak.dev.americanwell.com)
+schemes:
+  - name: oidc
+    type: openIdConnect
+    scheme: openid-connect
+    provider: Keycloak
+    evidence: keycloak.dev.americanwell.com referenced in developers.amwell.com CSP
+  - name: oauth2
+    type: oauth2
+    flows: [authorizationCode]
+    evidence: Keycloak OAuth 2.0 authorization endpoint for platform/API access
+  - name: saml-sso
+    type: saml
+    scheme: single-sign-on
+    evidence: >-
+      Single sign-on for EHR (Epic, Oracle Cerner) and patient-portal launch of
+      embedded virtual visits, per Amwell Converge platform documentation.
+  - name: smart-on-fhir
+    type: oauth2
+    scheme: smart-on-fhir
+    evidence: FHIR-based EHR launch workflows over SSO
