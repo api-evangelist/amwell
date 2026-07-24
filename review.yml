@@ -1,0 +1,101 @@
+aid: amwell
+name: Amwell
+review:
+  question: Does Amwell expose an anonymously documented public API or FHIR CapabilityStatement?
+  answer: false
+  date: '2026-07-24'
+  reviewer: API Evangelist
+  homeMarket: United States
+findings:
+  summary: |
+    Amwell (American Well) runs a real, live developer portal at
+    https://developers.amwell.com (HTTP 200), but its REST/FHIR API reference,
+    SDKs, and sandbox are gated behind a partner login and a browser-check gate
+    rather than an anonymous public specification. The developer, docs, and FHIR
+    subdomains (developers.amwell.com, docs.amwell.com, fhir.amwell.com) all
+    resolve to the same application server and redirect unauthenticated requests
+    to an "updateBrowser.htm" / "Browser Not Supported" gate. No anonymous FHIR
+    CapabilityStatement, SMART-on-FHIR configuration, or downloadable OpenAPI /
+    Swagger document could be retrieved. Amwell's Converge platform is publicly
+    described (press + platform pages) as an open architecture whose APIs
+    leverage HL7 FHIR, with single sign-on and embedded telehealth mobile/web
+    SDKs (iOS, Android, web) and verified embedded-telehealth integrations for
+    the Epic and Oracle Cerner EHRs. This is a gated-but-documented partner API
+    surface — an honest and common result for a telehealth platform vendor whose
+    integrations are provisioned under partner/BAA agreements.
+  developerPortal:
+    url: https://developers.amwell.com
+    httpStatus: 200
+    confirmed: true
+    gated: true
+    note: >-
+      Live root (200) but redirects to https://developers.amwell.com/updateBrowser.htm;
+      the API reference, SDK downloads, and sandbox sit behind a partner login.
+  fhirCapabilityStatement:
+    found: false
+    version: null
+    resources: []
+    note: >-
+      https://fhir.amwell.com/metadata, /R4/metadata, and /fhir/metadata all
+      returned HTTP 404; the fhir.amwell.com host serves the same browser-check
+      gate, not an anonymous FHIR endpoint.
+  smartConfiguration:
+    found: false
+    note: >-
+      https://fhir.amwell.com/.well-known/smart-configuration and
+      /.well-known/openid-configuration both returned HTTP 404.
+  downloadableSpecs:
+    count: 0
+    note: >-
+      Probed /openapi.json, /swagger.json, /api-docs on developers.amwell.com and
+      docs.amwell.com — all HTTP 404. No spec harvested verbatim.
+  authModel:
+    scheme: SMART-on-FHIR / OAuth2 + single sign-on (partner-provisioned)
+    verified: false
+    note: >-
+      Publicly described as FHIR-leveraging with single sign-on; the exact OAuth2
+      scopes and grant types are behind the gated partner portal and could not be
+      confirmed anonymously.
+  standardsConformance:
+    fhir: referenced (Converge platform "APIs leverage FHIR")
+    usCore: unconfirmed
+    daVinci: unconfirmed
+    carinBlueButton: unconfirmed
+    hl7: referenced
+  gatedVsSelfServe: gated (partner developer portal, no anonymous public spec)
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: gated
+      note: Converge platform REST APIs behind the partner developer portal.
+    - protocol: FHIR
+      scheme: https
+      documented: gated
+      note: APIs leverage HL7 FHIR per Amwell platform materials; no anonymous CapabilityStatement served.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in any anonymously reachable Amwell material.
+sources:
+  - url: https://developers.amwell.com
+    type: DeveloperPortal
+    note: HTTP 200; redirects to updateBrowser.htm browser-check / login gate.
+  - url: https://business.amwell.com/the-amwell-platform
+    type: Documentation
+    note: Converge platform overview (virtual care, EHR integration, Carepoint devices).
+  - url: https://www.mobihealthnews.com/news/amwell-looks-third-party-device-integrations-launch-converge
+    type: Reference
+    note: Reports Converge APIs leverage FHIR and offer single sign-on with open architecture.
+  - url: https://business.amwell.com/about-us/news/press-releases/2016/first-ever-telehealth-mobile-sdk
+    type: Reference
+    note: American Well's first-ever telehealth mobile SDK for embedding visits into consumer apps.
+actions:
+  apisYmlUpdated: true
+  reason: |
+    Cataloged the real, publicly-described Converge platform API family (Converge
+    Platform API, Telehealth SDK, EHR Integration) with the confirmed live but
+    gated developer portal as the documentation surface. No OpenAPI or FHIR
+    CapabilityStatement was harvested because none is served anonymously.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
