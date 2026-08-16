@@ -4,15 +4,17 @@ name: Amwell
 kind: company
 description: Amwell (American Well) is a United States telehealth and hybrid-care
   technology company headquartered in Boston, Massachusetts, whose Converge platform
-  delivers virtual and in-person care at scale for health systems, health plans, and
-  government programs. Converge is built on an open architecture whose APIs leverage
-  HL7 FHIR, single sign-on, and embedded telehealth mobile and web SDKs (iOS, Android,
-  web) so partners can plug urgent, scheduled, behavioral, and specialty virtual visits
-  directly into their own consumer apps, patient portals, and clinical workflows. Amwell
-  ships verified embedded-telehealth integrations with the Epic and Oracle Cerner EHRs
-  and connects software-enabled Carepoint devices. The developer surface is a gated
-  partner developer portal (developers.amwell.com) — the REST/FHIR API reference, SDKs,
-  and sandbox sit behind a partner login rather than an anonymous public spec.
+  delivers virtual and in-person care at scale for health systems, health plans,
+  employers, and government programs. Amwell describes Converge as an open architecture
+  whose APIs leverage HL7 FHIR and single sign-on, with embedded telehealth mobile and
+  web SDKs (iOS, Android, web) so partners can plug urgent, scheduled, behavioral, and
+  specialty virtual visits directly into their own consumer apps, patient portals, and
+  clinical workflows. Amwell ships a verified embedded-telehealth integration with Epic
+  through the Epic App Orchard and an embedded telehealth solution inside Oracle Cerner
+  Millennium, and connects software-enabled Carepoint devices. Amwell publishes no
+  public developer portal, API reference, or machine-readable specification of any kind
+  — SDK and API access is arranged through a partner and sales conversation
+  (SDK@americanwell.com), so the integration contract is not readable before a deal.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Healthcare
@@ -25,69 +27,70 @@ tags:
 - EHR
 - SDK
 created: '2026-07-24'
-modified: '2026-07-24'
+modified: '2026-08-15'
 specificationVersion: '0.19'
 apis:
 - aid: amwell:amwell-converge-platform-api
   name: Amwell Converge Platform API
-  description: Amwell's Converge platform REST APIs, which leverage HL7 FHIR and
-    single sign-on, let partners embed and orchestrate virtual care — urgent,
-    scheduled, behavioral, and specialty visits — into their own applications,
-    patient portals, and clinical workflows. Access is provisioned through the
-    gated Amwell partner developer portal.
-  humanURL: https://developers.amwell.com
+  description: Amwell's Converge platform REST APIs, which Amwell states leverage
+    HL7 FHIR and single sign-on, let partners embed and orchestrate virtual care —
+    urgent, scheduled, behavioral, and specialty visits — into their own
+    applications, patient portals, and clinical workflows. No public API reference,
+    base URL, or specification is published; access is arranged with Amwell under a
+    partner agreement.
+  humanURL: https://business.amwell.com/the-amwell-platform
   tags:
   - Telehealth
   - FHIR
   - Virtual Care
   properties:
-  - type: DeveloperPortal
-    url: https://developers.amwell.com
   - type: Documentation
     url: https://business.amwell.com/the-amwell-platform
 - aid: amwell:amwell-telehealth-sdk
   name: Amwell Telehealth SDK
   description: Amwell's embedded telehealth software development kits for iOS,
     Android, and web, enabling organizations to plug live virtual visits directly
-    into their own consumer and clinical applications. SDK documentation and
-    downloads are distributed through the gated Amwell developer portal.
-  humanURL: https://developers.amwell.com
+    into their own consumer and clinical applications. The SDK is distributed to
+    partners on request (SDK@americanwell.com) rather than through a public package
+    registry; the only first-party Amwell artifact on any public registry is the
+    Android WebRTC media binary on Maven Central.
+  humanURL: https://business.amwell.com/press-release/first-ever-telehealth-mobile-sdk/
   tags:
   - SDK
   - Telehealth
   - Mobile
   properties:
-  - type: DeveloperPortal
-    url: https://developers.amwell.com
   - type: Documentation
     url: https://business.amwell.com/the-amwell-platform
+  - type: Packages
+    url: packages/amwell-packages.yml
 - aid: amwell:amwell-ehr-integration
   name: Amwell EHR Integration
-  description: Amwell's verified embedded-telehealth integrations for the Epic and
-    Oracle Cerner electronic health records, using single sign-on and FHIR-based
-    workflows to launch virtual visits from within existing EHR and patient-portal
-    experiences.
-  humanURL: https://business.amwell.com/the-amwell-platform
+  description: Amwell's verified embedded-telehealth integration for Epic, delivered
+    through the Epic App Orchard, and its embedded telehealth solution inside Oracle
+    Cerner Millennium, both launching virtual visits by single sign-on from within
+    existing EHR and patient-portal experiences.
+  humanURL: https://business.amwell.com/the-amwell-platform/ehr-integration
   tags:
   - EHR
   - Interoperability
   - FHIR
   properties:
   - type: Documentation
-    url: https://business.amwell.com/the-amwell-platform
+    url: https://business.amwell.com/the-amwell-platform/ehr-integration
 common:
 - type: DomainSecurity
   url: security/amwell-domain-security.yml
 - type: Website
   url: https://www.amwell.com
-- type: DeveloperPortal
-  url: https://developers.amwell.com
 - type: Documentation
   url: https://business.amwell.com/the-amwell-platform
 - type: Blog
   url: https://business.amwell.com/blog
 - type: StatusPage
   url: https://status.amwell.com
+- type: Lifecycle
+  url: lifecycle/amwell-lifecycle.yml
 - type: Support
   url: https://business.amwell.com/contact-us/
 - type: PrivacyPolicy
@@ -101,9 +104,39 @@ common:
 - type: Conformance
   url: conformance/amwell-conformance.yml
 - type: Compliance
-  url: https://business.amwell.com/government/
+  url: https://business.amwell.com/who-we-serve/government
+- type: Packages
+  url: packages/amwell-packages.yml
+- type: Plans
+  url: plans/amwell-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/amwell-rate-limits.yml
 - type: LLMsTxt
   url: llms/amwell-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-15'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    Amwell publishes no developer surface at all — developers.amwell.com is a
+    wildcard vhost that answers 200 with the consumer Amwell "Online Care"
+    sign-up app for any subdomain, including ones that do not exist — and the
+    only stated route to the Converge API and telehealth SDK is emailing
+    SDK@americanwell.com or the partner contact form.
+  evidence:
+  - url: https://developers.amwell.com/
+    status: 200
+  - url: https://zzz-not-a-real-host-9x.amwell.com/
+    status: 200
+  - url: https://developers.amwell.com/openapi.json
+    status: 404
+  - url: https://business.amwell.com/pricing/
+    status: 404
+  checked: '2026-08-15'
