@@ -1,0 +1,145 @@
+generated: '2026-08-15'
+method: probed
+source: live HTTP probes of every Amwell host named in apis.yml, plus contract-discovery candidates
+note: >-
+  Every /.well-known/ path probed on every Amwell host returned 404 or was
+  answered by a wildcard catch-all serving the consumer telehealth HTML app.
+  NO WellKnown or SecurityTxt pointer is emitted in apis.yml, because not one
+  path returned a real document. This file records a verified ABSENCE.
+wildcard_warning: >-
+  amwell.com serves a wildcard vhost: ANY subdomain — including hosts that do
+  not exist — answers HTTP 200 with the consumer Amwell "Online Care" sign-up
+  application (redirecting to /landing.htm, or /updateBrowser.htm for
+  non-browser user agents). Control probes of zzz-not-a-real-host-9x.amwell.com
+  and randomtest12345.amwell.com both returned 200 /landing.htm. Any 200 from a
+  *.amwell.com subdomain is therefore NOT evidence that the named surface
+  exists. This is what previously caused developers.amwell.com, docs.amwell.com,
+  apidocs.amwell.com, mcp.amwell.com, sdk.amwell.com, trust.amwell.com and
+  partners.amwell.com to read as live surfaces; none of them are.
+hosts:
+  - host: https://developers.amwell.com
+    real_surface: false
+    resolves_to: wildcard consumer telehealth app (200 /landing.htm)
+  - host: https://business.amwell.com
+    real_surface: true
+    resolves_to: Amwell corporate/marketing site (Drupal)
+  - host: https://www.amwell.com
+    real_surface: true
+    resolves_to: redirects to business.amwell.com
+  - host: https://status.amwell.com
+    real_surface: true
+    resolves_to: StatusHub-hosted status page (JS-rendered SPA)
+  - host: https://convergelaunch.amwell.com
+    real_surface: true
+    resolves_to: Converge marketing microsite, no developer content
+documents:
+  - path: /.well-known/security.txt
+    host: developers.amwell.com
+    status: 404
+  - path: /.well-known/security.txt
+    host: business.amwell.com
+    status: 404
+  - path: /.well-known/security.txt
+    host: www.amwell.com
+    status: 404
+  - path: /.well-known/security.txt
+    host: amwell.com
+    status: 404
+  - path: /.well-known/security.txt
+    host: convergelaunch.amwell.com
+    status: 404
+  - path: /.well-known/openid-configuration
+    host: developers.amwell.com
+    status: 404
+  - path: /.well-known/openid-configuration
+    host: business.amwell.com
+    status: 404
+  - path: /.well-known/openid-configuration
+    host: www.amwell.com
+    status: 404
+  - path: /.well-known/openid-configuration
+    host: convergelaunch.amwell.com
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    host: developers.amwell.com
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    host: business.amwell.com
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    host: www.amwell.com
+    status: 404
+  - path: /.well-known/api-catalog
+    host: developers.amwell.com
+    status: 404
+  - path: /.well-known/api-catalog
+    host: business.amwell.com
+    status: 404
+  - path: /.well-known/api-catalog
+    host: www.amwell.com
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    host: developers.amwell.com
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    host: business.amwell.com
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    host: www.amwell.com
+    status: 404
+  - path: /.well-known/agent-card.json
+    host: developers.amwell.com
+    status: 404
+  - path: /.well-known/agent-card.json
+    host: business.amwell.com
+    status: 404
+  - path: /.well-known/agent-card.json
+    host: www.amwell.com
+    status: 404
+  - path: /.well-known/agent-card.json
+    host: convergelaunch.amwell.com
+    status: 404
+  - path: /.well-known/agent.json
+    host: developers.amwell.com
+    status: 404
+  - path: /.well-known/agent.json
+    host: business.amwell.com
+    status: 404
+  - path: /.well-known/agent.json
+    host: www.amwell.com
+    status: 404
+  - path: /.well-known/agent.json
+    host: convergelaunch.amwell.com
+    status: 404
+contract_discovery:
+  openapi:
+    probed:
+      - {url: 'https://developers.amwell.com/openapi.json', status: 404}
+      - {url: 'https://developers.amwell.com/openapi.yaml', status: 404}
+      - {url: 'https://developers.amwell.com/swagger.json', status: 404}
+      - {url: 'https://developers.amwell.com/api-docs', status: 404}
+      - {url: 'https://developers.amwell.com/v1/openapi.json', status: 404}
+      - {url: 'https://business.amwell.com/openapi.json', status: 404}
+      - {url: 'https://business.amwell.com/swagger.json', status: 404}
+      - {url: 'https://www.amwell.com/openapi.json', status: 404}
+      - {url: 'https://convergelaunch.amwell.com/openapi.json', status: 404}
+      - {url: 'https://api.amwell.com/openapi.json', status: 0, note: 'host resolves (34.102.175.233) but the TLS handshake never completes — no reachable service'}
+    found: false
+  graphql:
+    probed: false
+    note: no /graphql surface is documented or discoverable on any Amwell host
+    found: false
+  mcp:
+    probed:
+      - {url: 'https://mcp.amwell.com/', status: 200, note: 'FALSE POSITIVE — wildcard vhost returning the consumer telehealth HTML app, not an MCP server'}
+    found: false
+  a2a:
+    found: false
+    note: no agent card at either the canonical or legacy well-known path on any host
+  llms_txt:
+    probed:
+      - {url: 'https://developers.amwell.com/llms.txt', status: 404}
+      - {url: 'https://business.amwell.com/llms.txt', status: 404}
+      - {url: 'https://www.amwell.com/llms.txt', status: 404}
+      - {url: 'https://convergelaunch.amwell.com/llms.txt', status: 404}
+    found: false

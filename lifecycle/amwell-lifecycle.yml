@@ -1,0 +1,41 @@
+generated: '2026-08-15'
+method: searched
+source: >-
+  https://status.amwell.com/ (probed 2026-08-15, HTTP 200) plus a search of
+  business.amwell.com for versioning, deprecation, sunset and SLA policy
+note: >-
+  Amwell publishes an operational status page and nothing else in this family.
+  No API versioning scheme, deprecation policy, Sunset/Deprecation header
+  support (RFC 8594), or public SLA/uptime commitment is documented on any
+  anonymously reachable Amwell surface — those terms sit inside partner and
+  BAA agreements. Recorded as verified absence, not as untested.
+status_page:
+  url: https://status.amwell.com
+  status: 200
+  platform: StatusHub
+  machine_readable: false
+  note: >-
+    JS-rendered StatusHub SPA — the page body is "We're sorry but statushub-hub
+    doesn't work properly without JavaScript enabled." /api/v1/services and
+    /api/v1/incidents both returned 404, and /history.rss and /feed.rss return
+    the HTML shell rather than a feed, so there is no machine-readable incident
+    or component feed an agent can poll.
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  note: not publicly documented — the Converge API reference is not anonymously reachable
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: no public deprecation or sunset policy found
+sla:
+  url: null
+  uptime_target: null
+  note: no public SLA or uptime commitment published
+deprecated_operations: []
+evidence:
+  - {url: 'https://status.amwell.com/', status: 200}
+  - {url: 'https://status.amwell.com/api/v1/services', status: 404}
+  - {url: 'https://status.amwell.com/api/v1/incidents', status: 404}
+  - {url: 'https://business.amwell.com/sitemap.xml', status: 200, note: '1,975 URLs, none matching a versioning, deprecation, SLA or API-lifecycle page'}

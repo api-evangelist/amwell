@@ -1,0 +1,18 @@
+generated: '2026-08-15'
+method: searched
+source: >-
+  https://business.amwell.com/sitemap.xml (1,975 URLs, no pricing page) and
+  https://business.amwell.com/pricing/ (HTTP 404), probed 2026-08-15
+plan_count: 0
+note: >-
+  Amwell publishes no plans, tiers, or list pricing for its platform, APIs or
+  SDKs. It sells enterprise contracts to health systems, health plans, employers
+  and government programs through a sales motion — the site's only commercial
+  call to action is a contact/demo form. Consumer visit prices exist on the
+  patient side of the product, but they are per-visit care charges and are not
+  an API or platform plan, so they are not recorded here as tiers.
+plans: []
+evidence:
+  - {url: 'https://business.amwell.com/pricing/', status: 404}
+  - {url: 'https://business.amwell.com/contact-us/', status: 200, note: 'contact/demo form stands in for published pricing'}
+  - {url: 'https://business.amwell.com/sitemap.xml', status: 200, note: 'no pricing, plans or packaging page in the full URL set'}

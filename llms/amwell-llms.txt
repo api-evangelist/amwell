@@ -1,30 +1,37 @@
 # Amwell (American Well)
 
-> Amwell is a United States telehealth and hybrid-care technology company (Boston, MA) whose Converge platform delivers virtual and in-person care at scale for health systems, health plans, and government programs. The Converge platform is built on an open architecture whose APIs leverage HL7 FHIR and single sign-on, with embedded telehealth SDKs for iOS, Android, and web so partners can plug urgent, scheduled, behavioral, and specialty virtual visits into their own apps, patient portals, and clinical workflows. The developer surface is a gated partner developer portal — the REST/FHIR API reference, SDKs, and sandbox sit behind a partner login rather than an anonymous public spec.
+> Amwell is a United States telehealth and hybrid-care technology company (Boston, MA) whose Converge platform delivers virtual and in-person care at scale for health systems, health plans, employers, and government programs. Amwell describes Converge as an open architecture whose APIs leverage HL7 FHIR and single sign-on, with embedded telehealth SDKs for iOS, Android, and web so partners can plug urgent, scheduled, behavioral, and specialty virtual visits into their own apps, patient portals, and clinical workflows. Amwell publishes NO public developer portal, API reference, or machine-readable specification: SDK and API access is arranged through a partner/sales conversation.
 
 ## APIs
 
-- [Amwell Converge Platform API](https://developers.amwell.com): REST/FHIR APIs with single sign-on to embed and orchestrate urgent, scheduled, behavioral, and specialty virtual visits (gated partner portal).
-- [Amwell Telehealth SDK](https://developers.amwell.com): Embedded telehealth SDKs for iOS, Android, and web to plug live virtual visits into consumer and clinical apps (distributed through the gated developer portal).
-- [Amwell EHR Integration](https://business.amwell.com/the-amwell-platform): Verified embedded-telehealth integrations for Epic and Oracle Cerner EHRs using single sign-on and FHIR-based workflows.
+- [Amwell Converge Platform API](https://business.amwell.com/the-amwell-platform): REST/FHIR APIs with single sign-on to embed and orchestrate urgent, scheduled, behavioral, and specialty virtual visits. No public reference or base URL is published.
+- [Amwell Telehealth SDK](https://business.amwell.com/the-amwell-platform): Embedded telehealth SDKs for iOS, Android, and web. Distributed to partners on request (SDK@americanwell.com), not through public package registries.
+- [Amwell EHR Integration](https://business.amwell.com/the-amwell-platform/ehr-integration): Verified embedded-telehealth integration for Epic (via the Epic App Orchard) and an embedded telehealth solution within Oracle Cerner Millennium, both launched by single sign-on.
 
 ## Standards
 
-- HL7 FHIR — interoperability and EHR integration
-- SMART on FHIR / OAuth 2.0 / OpenID Connect — single sign-on (Keycloak identity provider)
-- SAML SSO — EHR and patient-portal launch
-- HIPAA compliant; HITRUST certified
+- HL7 FHIR — Amwell states the Converge platform's APIs leverage FHIR for interoperability and EHR integration
+- OAuth 2.0 / OpenID Connect — Keycloak identity provider (keycloak.dev.americanwell.com appears in the platform's Content-Security-Policy)
+- SAML / single sign-on — EHR and patient-portal launch of embedded virtual visits
+- HITRUST certified; HIPAA compliant (stated on the Amwell government solutions page)
+
+## Packages
+
+- `com.americanwell.android:webrtc` 1.0.1 (Maven Central, Apache-2.0, published 2023-06-13) — "webrtc binary to enable telehealth visits", the only first-party Amwell artifact on any public registry. It is a media dependency of the Android telehealth SDK, not a client library for the Converge API.
 
 ## Docs
 
-- [Developer Portal (gated)](https://developers.amwell.com)
 - [The Amwell Platform](https://business.amwell.com/the-amwell-platform)
-- [Government / Hybrid Care Platform](https://business.amwell.com/government/)
+- [EHR Integration](https://business.amwell.com/the-amwell-platform/ehr-integration)
+- [Government / Hybrid Care Platform](https://business.amwell.com/who-we-serve/government)
+- [Partners](https://business.amwell.com/about-us/our-partners)
 - [Blog](https://business.amwell.com/blog)
 - [Status Page](https://status.amwell.com)
 - [Support / Contact](https://business.amwell.com/contact-us/)
 
 ## Notes
 
-- Access to the REST/FHIR API reference, SDK downloads, and sandbox is provisioned through the gated Amwell partner developer portal (developers.amwell.com) after partner login.
-- No anonymous public OpenAPI, GraphQL, MCP, or AsyncAPI document was discoverable as of 2026-07-24 (all /.well-known/, /openapi.json, /swagger.json probes returned 404).
+- CORRECTION (2026-08-15): `developers.amwell.com` is NOT a developer portal. `amwell.com` serves a wildcard vhost — any subdomain, including ones that do not exist, answers HTTP 200 with the consumer Amwell "Online Care" sign-up application. Control probes of `zzz-not-a-real-host-9x.amwell.com` and `randomtest12345.amwell.com` both returned 200. The same wildcard also answers on `docs.`, `apidocs.`, `partners.`, `sdk.`, `trust.`, `security.` and `mcp.` — none of those surfaces exist.
+- No public OpenAPI, Swagger, GraphQL, AsyncAPI, MCP server, A2A agent card, llms.txt, or FHIR CapabilityStatement was discoverable on any Amwell host as of 2026-08-15. Every `/.well-known/` path probed returned 404.
+- `api.amwell.com` resolves in DNS (34.102.175.233) but never completes a TLS handshake — there is no reachable public API host.
+- The only machine-readable operational surface is the StatusHub status page, and it is a JavaScript-rendered SPA with no JSON or RSS feed.

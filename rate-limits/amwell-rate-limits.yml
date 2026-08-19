@@ -1,0 +1,20 @@
+generated: '2026-08-15'
+method: searched
+source: >-
+  search of every anonymously reachable Amwell surface for published API rate
+  limits, throttling, quota or Retry-After documentation, 2026-08-15
+limit_count: 0
+note: >-
+  No rate limits, quotas, throttling behaviour, response headers
+  (X-RateLimit-*, RateLimit-*, Retry-After) or exhaustion status codes are
+  published anywhere on Amwell's public surface. The Converge REST/FHIR API
+  reference is not anonymously reachable, so there is no document to read them
+  from, and no live unauthenticated endpoint exists to observe them on:
+  api.amwell.com resolves but never completes a TLS handshake. This is an
+  honest zero — undocumented, not absent.
+limits: []
+headers: []
+evidence:
+  - {url: 'https://api.amwell.com/', status: 0, note: 'DNS resolves to 34.102.175.233; TLS handshake never completes — nothing to observe'}
+  - {url: 'https://developers.amwell.com/', status: 200, note: 'wildcard vhost serving the consumer telehealth app, not an API reference'}
+  - {url: 'https://business.amwell.com/sitemap.xml', status: 200, note: 'no rate-limit, quota or throttling page in the full URL set'}

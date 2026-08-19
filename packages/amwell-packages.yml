@@ -1,0 +1,67 @@
+generated: '2026-08-15'
+method: searched
+source: >-
+  Maven Central (search.maven.org + repo1.maven.org POM), npm registry, PyPI,
+  NuGet, RubyGems, Packagist, CocoaPods trunk, and the GitHub orgs
+  github.com/Amwell and github.com/americanwell
+note: >-
+  Amwell distributes its telehealth client SDKs (iOS, Android, web) to partners
+  under agreement, not through public registries: the 2016 launch press release
+  directs integrators to email SDK@americanwell.com "for more information on why
+  and how to access the SDK". Exactly ONE first-party Amwell artifact is publicly
+  published to any registry — a WebRTC media binary on Maven Central used by the
+  Android telehealth SDK. The SDK itself (AWSDK) is not public, so no SDKs
+  pointer is emitted in apis.yml: crediting Amwell with a publicly available
+  client SDK would misstate what an integrator can actually download.
+package_count: 1
+packages:
+  - language: java
+    platform: android
+    registry: maven
+    name: com.americanwell.android:webrtc
+    group_id: com.americanwell.android
+    artifact_id: webrtc
+    url: https://central.sonatype.com/artifact/com.americanwell.android/webrtc
+    pom: https://repo1.maven.org/maven2/com/americanwell/android/webrtc/1.0.1/webrtc-1.0.1.pom
+    install: 'implementation "com.americanwell.android:webrtc:1.0.1"'
+    packaging: aar
+    license: Apache-2.0
+    version: 1.0.1
+    published: '2023-06-13'
+    version_count: 1
+    official: true
+    ownership_evidence: >-
+      POM declares developers[].organization "American Well",
+      organizationUrl http://www.americanwell.com, scm url
+      http://www.americanwell.com, and description "webrtc binary to enable
+      telehealth visits."
+    role: >-
+      Media transport dependency of the Amwell Android telehealth SDK — not a
+      client library for the Converge REST/FHIR API.
+    currency_note: >-
+      Only version ever published, released 2023-06-13 and untouched since. This
+      is the single dated, provider-published decay signal available for Amwell's
+      developer surface.
+registries_checked:
+  - {registry: maven, query: 'americanwell / amwell / g:com.americanwell.android', hits: 1}
+  - {registry: npm, query: 'amwell, americanwell, awsdk, @amwell/sdk, @americanwell/awsdk', hits: 0}
+  - {registry: pypi, query: 'amwell, americanwell', hits: 0}
+  - {registry: nuget, query: 'amwell', hits: 0}
+  - {registry: packagist, query: 'amwell', hits: 0}
+  - {registry: cocoapods, query: 'AWSDK, AmwellSDK, AmericanWellSDK', hits: 0}
+gated_distribution:
+  - name: Amwell Telehealth SDK (iOS / Android / web)
+    channel: partner request
+    contact: SDK@americanwell.com
+    source: https://business.amwell.com/press-release/first-ever-telehealth-mobile-sdk/
+    public_registry: false
+source_control:
+  - org: https://github.com/Amwell
+    public_repos: 1
+    note: >-
+      Single repo "resources-details", an Angular 4 app last pushed 2017-08-21
+      with no relation to the telehealth platform; ownership by American Well
+      Corporation is unverified. Not wired as a GitHubOrganization pointer.
+  - org: https://github.com/americanwell
+    type: user
+    public_repos: 0
