@@ -15,6 +15,17 @@ description: Amwell (American Well) is a United States telehealth and hybrid-car
   public developer portal, API reference, or machine-readable specification of any kind
   — SDK and API access is arranged through a partner and sales conversation
   (SDK@americanwell.com), so the integration contract is not readable before a deal.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Healthcare
