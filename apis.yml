@@ -1,5 +1,7 @@
 aid: amwell
 url: https://raw.githubusercontent.com/api-evangelist/amwell/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
 name: Amwell
 kind: company
 description: Amwell (American Well) is a United States telehealth and hybrid-care
