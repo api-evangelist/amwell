@@ -51,6 +51,16 @@ tags:
 - FHIR
 - HL7
 - Interoperability
+- Electronic Health Records
+- SDK
+tags_raw:
+- Healthcare
+- United States
+- Telehealth
+- Virtual Care
+- FHIR
+- HL7
+- Interoperability
 - EHR
 - SDK
 created: '2026-07-24'
@@ -99,6 +109,10 @@ apis:
     existing EHR and patient-portal experiences.
   humanURL: https://business.amwell.com/the-amwell-platform/ehr-integration
   tags:
+  - Electronic Health Records
+  - Interoperability
+  - FHIR
+  tags_raw:
   - EHR
   - Interoperability
   - FHIR
