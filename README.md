@@ -1,4 +1,4 @@
-# Amwell (amwell)
+# Amwell
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,95 +64,105 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Amwell (American Well) is a United States telehealth and hybrid-care technology company headquartered in Boston, Massachusetts, whose Converge platform delivers virtual and in-person care at scale for health systems, health plans, and government programs. Converge is built on an open architecture whose APIs leverage HL7 FHIR, single sign-on, and embedded telehealth mobile and web SDKs (iOS, Android, web), with verified embedded-telehealth integrations for the Epic and Oracle Cerner EHRs. The developer surface is a gated partner developer portal (developers.amwell.com) — the REST/FHIR API reference, SDKs, and sandbox sit behind a partner login rather than an anonymous public spec.
+Amwell (American Well) is a United States telehealth and hybrid-care technology company headquartered in Boston, Massachusetts, whose Converge platform delivers virtual and in-person care at scale for health systems, health plans, employers, and government programs. Amwell describes Converge as an open architecture whose APIs leverage HL7 FHIR and single sign-on, with embedded telehealth mobile and web SDKs (iOS, Android, web) so partners can plug urgent, scheduled, behavioral, and specialty virtual visits directly into their own consumer apps, patient portals, and clinical workflows. Amwell ships a verified embedded-telehealth integration with Epic through the Epic App Orchard and an embedded telehealth solution inside Oracle Cerner Millennium, and connects software-enabled Carepoint devices. Amwell publishes no public developer portal, API reference, or machine-readable specification of any kind — SDK and API access is arranged through a partner and sales conversation (SDK@americanwell.com), so the integration contract is not readable before a deal.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/amwell/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/amwell/refs/heads/main/apis.yml)
+**Areas:** Healthcare · United States · Telehealth · Virtual Care · FHIR · HL7 · Interoperability · Electronic Health Records · SDK
 
-## Tags
+## Amwell on APIs.io
 
-- Healthcare
-- United States
-- Telehealth
-- Virtual Care
-- FHIR
-- HL7
-- Interoperability
-- EHR
-- SDK
+Everything profiled for Amwell is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amwell/](https://apis.io/providers/amwell/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (3)
 
-- **Created:** 2026-07-24
-- **Modified:** 2026-07-24
+- [Amwell Converge Platform API](https://apis.io/apis/amwell/amwell-converge-platform-api/) — Amwell's Converge platform REST APIs, which Amwell states leverage HL7 FHIR and single sign-on, let partners embed and orchestrate virtual care — urgent,…
+- [Amwell Telehealth SDK](https://apis.io/apis/amwell/amwell-telehealth-sdk/) — Amwell's embedded telehealth software development kits for iOS, Android, and web, enabling organizations to plug live virtual visits directly into their own…
+- [Amwell EHR Integration](https://apis.io/apis/amwell/amwell-ehr-integration/) — Amwell's verified embedded-telehealth integration for Epic, delivered through the Epic App Orchard, and its embedded telehealth solution inside Oracle…
 
-## APIs
+### Published properties
 
-### Amwell Converge Platform API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Amwell's Converge platform REST APIs, which leverage HL7 FHIR and single sign-on, let partners embed and orchestrate virtual care — urgent, scheduled, behavioral, and specialty visits — into their own applications, patient portals, and clinical workflows. Access is provisioned through the gated Amwell partner developer portal.
+#### Security (2)
 
-- **Human URL:** [https://developers.amwell.com](https://developers.amwell.com)
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Amwell Authentication](https://apis.io/security/amwell/amwell-authentication/)
+- [Amwell Domain Security](https://apis.io/security/amwell/amwell-domain-security/)
 
-- Telehealth
-- FHIR
-- Virtual Care
+#### Plans and pricing (1)
 
-#### Properties
+Published plans, tiers and prices.
 
-- [Developer Portal](https://developers.amwell.com)
-- [Documentation](https://business.amwell.com/the-amwell-platform)
+- [Amwell Plans Pricing](https://apis.io/plans/amwell/amwell-plans-pricing/)
 
-### Amwell Telehealth SDK
+#### Rate limits (1)
 
-Amwell's embedded telehealth software development kits for iOS, Android, and web, enabling organizations to plug live virtual visits directly into their own consumer and clinical applications. SDK documentation and downloads are distributed through the gated Amwell developer portal.
+Published request limits.
 
-- **Human URL:** [https://developers.amwell.com](https://developers.amwell.com)
+- [Amwell Rate Limits](https://apis.io/rate-limits/amwell/amwell-rate-limits/)
 
-#### Tags
+## Where to find this API
 
-- SDK
-- Telehealth
-- Mobile
-
-#### Properties
-
-- [Developer Portal](https://developers.amwell.com)
-- [Documentation](https://business.amwell.com/the-amwell-platform)
-
-### Amwell EHR Integration
-
-Amwell's verified embedded-telehealth integrations for the Epic and Oracle Cerner electronic health records, using single sign-on and FHIR-based workflows to launch virtual visits from within existing EHR and patient-portal experiences.
-
-- **Human URL:** [https://business.amwell.com/the-amwell-platform](https://business.amwell.com/the-amwell-platform)
-
-#### Tags
-
-- EHR
-- Interoperability
-- FHIR
-
-#### Properties
-
-- [Documentation](https://business.amwell.com/the-amwell-platform)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.amwell.com)
-- [Developer Portal](https://developers.amwell.com)
 - [Documentation](https://business.amwell.com/the-amwell-platform)
-- [Blog](https://business.amwell.com/blog)
-- [Status Page](https://status.amwell.com)
 - [Support](https://business.amwell.com/contact-us/)
-- [Privacy Policy](https://business.amwell.com/privacy-policy/)
-- [LinkedIn](https://www.linkedin.com/company/amwell)
+- [Blog](https://business.amwell.com/blog)
+- [Compliance](https://business.amwell.com/who-we-serve/government)
+- [Terms of service](https://business.amwell.com/terms-of-use/)
+- [Privacy policy](https://business.amwell.com/privacy-policy/)
+- [Status](https://status.amwell.com)
 
-## Review
+## API Evangelist rating
 
-Amwell runs a real, live developer portal at [developers.amwell.com](https://developers.amwell.com) (HTTP 200), but its REST/FHIR API reference, SDKs, and sandbox are gated behind a partner login. No anonymous FHIR CapabilityStatement, SMART-on-FHIR configuration, or downloadable OpenAPI/Swagger document could be retrieved — the developer, docs, and FHIR subdomains all redirect to a browser-check gate. See [`review.yml`](review.yml) for the full finding.
+**Kin Score 25.0** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 28.9 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 5.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 34.4** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amwell/](https://apis.io/providers/amwell/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amwell: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amwell/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
